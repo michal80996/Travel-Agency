@@ -1,0 +1,10 @@
+<div class="contact">
+    <form #f="ngForm"  (submit)="sendMessege(comment)">
+        <mat-form-field appearance="fill">
+            <mat-label>שליחת הודעה לסוכן הנסיעות</mat-label>
+            <textarea matInput  required="true" [(ngModel)]="comment" name="name" ></textarea>
+          </mat-form-field>
+          <br>
+    <input type="submit" value="שלח">
+    </form>
+</div>

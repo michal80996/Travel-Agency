@@ -1,0 +1,67 @@
+<div class="detials">
+    <mat-card class="card" *ngIf="oneFlight && !oneFlight.isArcived">
+        <mat-card-header>
+          
+          <mat-card-title>{{oneFlight.destination}}</mat-card-title>
+          <mat-card-subtitle>{{oneFlight.nameAir}}</mat-card-subtitle>
+        </mat-card-header>
+        <img  [src]=oneFlight.img >
+        <mat-card-content>
+            Code:{{oneFlight.code}} <br>
+            Name:{{oneFlight.nameAir}} <br>
+            Destination:{{oneFlight.destination}} <br>
+            Date:{{oneFlight.date | date}} <br>
+            Flight Time: {{oneFlight.flightTime |date:'HH:MM'}} <br>
+            Update: {{oneFlight.updates}} <br>
+            Seats: {{oneFlight.numSeats}} <br>
+            Kosher: {{oneFlight.kosher}} <br>
+            Sale: {{oneFlight.sale}}
+        
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button mat-raised-button color="primary" (click)="order()">הזמן</button>
+
+          <button *ngIf="isMenage"  mat-button mat-raised-button color="primary" (click)="onUpdateClick()">עדכון</button>
+          <button *ngIf="isMenage"  mat-button mat-raised-button color="primary" (click)="onAddClick()">הוספה</button>
+
+          <button *ngIf="isMenage"  mat-button mat-raised-button color="warn" (click)="onDeleteClick()">מחיקה</button>
+        </mat-card-actions><div>
+          <div *ngIf="isUpdate">
+  <app-managerial-update 
+   [once]="oneFlight"
+   (updateOnce)="updateEvent($event)"></app-managerial-update>
+   <button (click)="cencel()">ביטול</button>
+  </div>
+
+
+   <div class="addFlight"
+   *ngIf="isAdd"
+   >
+     <form #f="ngForm" (submit)="addFlight()">
+      <br><br>
+      Code: 
+      <input type="text" name="code" [(ngModel)]="newFlight.code" required><br><br>
+      Name:   <input type="text" name="name" [(ngModel)]="newFlight.nameAir" required><br><br>
+      Destination:
+      <select name="destination"  [(ngModel)]="theOption" >
+        <option *ngFor="let location of destination | keyvalue" 
+        [ngValue]="location.value"
+         required>{{location.value}}</option>
+
+      </select><br><br>
+      Date:   <input type="date" name="date" [(ngModel)]="newFlight.date" required><br><br>
+      Flight Time:  <input type="text" name="flightTime" [(ngModel)]="newFlight.flightTime" required> <br><br>
+      Update:  <input type="text" name="Update" [(ngModel)]="newFlight.updates" required><br><br>
+      Seats:   <input type="text" name="Seats" [(ngModel)]="newFlight.numSeats" required><br><br>
+      Kosher:    <input type="checkbox" checked="newFlight.kosher" name="kosher" [(ngModel)]="newFlight.kosher" ><br><br>
+      Sale:   <input type="text" name="sale" [(ngModel)]="newFlight.sale" ><br><br>
+      <input type="submit" value="הוספה">
+      <button (click)="cencel()">ביטול</button>
+     </form>
+   </div>
+
+</div>
+      </mat-card>
+
+</div>

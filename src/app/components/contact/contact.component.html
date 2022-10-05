@@ -1,0 +1,51 @@
+<div class="closed">
+    לכל שאלה או בקשה מוזמנים לפנות אלינו בכל עת
+    <form (submit)="onSubmitFilter()">
+        <span>    מתאריך    </span>
+        <input type="date" [(ngModel)]="start" name="start" min="{{CDate | date:'yyyy-MM-dd'}}">
+<br><br>
+        <span>  עד תאריך </span>
+        <input type="date" [(ngModel)]="end" name="end"><br><br>
+        <input type="submit">
+    </form>
+<br>
+<br>   
+<div class="all">
+<div class="allFlights">
+
+
+    <table *ngIf="isGetFilter">
+    <tr>
+        <td>קוד </td>
+        <td>מספר טיסה</td>
+        <td> יעד הטיסה</td>
+        <td>מועד הטיסה</td>
+    
+        <td>תמונה</td>
+    </tr>
+    <tr *ngFor="let f of filterFlights">
+        <td>{{f.code}}</td>
+        <td>{{f.nameAir}}</td>
+        <td>{{f.destination}}</td>
+        <td>{{f.date | date}}</td>
+      
+        
+        <td><img src= {{f.img}}> </td>
+        <td > <button (click)="onClickDetails(f)">More detials</button></td>
+      
+    </tr>
+</table>
+</div>
+
+<div class="details" *ngIf="isOpen">
+    זמן טיסה : {{theFlight.flightTime | date:"HH:mm"}} <br>
+    עידכונים : {{theFlight.updates}} <br>
+    מס' מושבים : {{theFlight.numSeats}} <br>
+    כשרות : {{theFlight.kosher
+        }}<br>
+    הנחה : {{theFlight.sale}} <br>
+    <button 
+    (click)="order()">הזמן טיסה זו</button>
+</div>
+</div>
+</div>

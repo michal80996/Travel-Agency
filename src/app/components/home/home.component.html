@@ -1,0 +1,28 @@
+<div class="home"
+>   
+        <div class="list-flights">
+         
+       
+                 <div *ngFor="let f of allFlight; let i =index">                
+                <mat-card (click)="onFlightClick(f,i)" [ngClass]="{'selected':f.selected}"
+                *ngIf="!f.isArcived">
+                    <mat-card-subtitle>{{f.date | date}}</mat-card-subtitle>
+                    <mat-card-title>{{f.destination}}</mat-card-title>
+                </mat-card>
+                <mat-divider></mat-divider>
+                </div>
+
+        </div>
+        <div class="detials">
+            <app-detials></app-detials>
+        </div>
+     
+</div>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

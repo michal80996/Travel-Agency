@@ -1,0 +1,75 @@
+<div class="registration">
+
+<h2>תודה שבחרת בנו</h2>
+<form #f="ngForm" (submit)="addClient()">
+    <mat-form-field appearance="outline">
+        <mat-label>שם מלא</mat-label>
+        <input required="true" [ngModel]="newName" name="neme" matInput >
+        <mat-error *ngIf="f.controls.password?.invalid && f.submitted">הכנס שם </mat-error>
+
+    </mat-form-field>   <br>
+ 
+
+    <mat-form-field appearance="outline">
+        <mat-label>סיסמא</mat-label>
+        <input required="true" [ngModel]="newPass" name="password" matInput >
+        <mat-error *ngIf="f.controls.password?.invalid && f.submitted">הכנס סיסמא</mat-error>
+
+    </mat-form-field> <br>
+   
+
+    <mat-form-field appearance="outline">
+        <mat-label>דואר אלקטרוני</mat-label>
+        <input required="true"
+         [ngModel]="newEmail"
+          name="password" 
+         type="email"
+         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+
+          matInput >
+        <mat-error *ngIf="f.controls.password?.invalid && f.submitted">הכנס דואר אלקטרוני</mat-error>
+
+    </mat-form-field><br>
+    
+
+    <mat-form-field appearance="outline">
+        <mat-label>תעודת זהות של בעל הכרטיס</mat-label>
+        <input required="true" [ngModel]="cardId" name="id" matInput >
+        <mat-error *ngIf="f.controls.cardId?.invalid && f.submitted">ת.ז. של בעל הרכטיס</mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label> מס' כרטיס אשראי</mat-label>
+        <input required="true" [ngModel]="cardNum" name="num" matInput >
+        <mat-error *ngIf="f.controls.cardNum?.invalid && f.submitted">מס' כרטיס</mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>תוקף לכרטיס</mat-label>
+        <input
+        required="true" 
+        [ngModel]="cardDate"
+         name="date"
+         title="אנא הזן כתובת מייל תקינה"
+          matInput >
+        <mat-error *ngIf="f.controls.cardDate?.invalid && f.submitted">תוקף לכרטיס</mat-error>
+
+    </mat-form-field><br>
+
+    <input type="checkbox" name="advertisements" [(ngModel)]="advertisements">
+    <div>?מעוניין לקבל אוכל כשר למהדרין</div>
+    
+     <br>
+     <br>
+<input type="checkbox" name="kosher" [(ngModel)]="isKosher">
+<div>אני מעונין לקבל פרסומות למייל </div>
+
+ <br>
+ <br>
+<input type="submit">
+</form>
+</div>

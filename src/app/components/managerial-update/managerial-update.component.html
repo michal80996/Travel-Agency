@@ -1,0 +1,16 @@
+<mat-card-content>
+    <form (submit)="updateEmit()">
+        <br><br>
+    Code: 
+    <input type="text" name="code" [(ngModel)]="once.code" ><br><br>
+    Name:   <input type="text" name="name" [(ngModel)]="once.nameAir"><br><br>
+    Destination:   <input type="text" name="destination" [(ngModel)]="once.destination"><br><br>
+    Date:   <input type="date" name="date" [(ngModel)]="once.date"><br><br>
+    Flight Time:  <input type="text" name="flightTime" [(ngModel)]="once.flightTime"> <br><br>
+    Update:  <input type="text" name="Update" [(ngModel)]="once.updates"><br><br>
+    Seats:   <input type="text" name="Seats" [(ngModel)]="once.numSeats"><br><br>
+    Kosher:    <input type="checkbox" checked="once.kosher" name="kosher" [(ngModel)]="once.kosher"><br><br>
+    Sale:   <input type="text" name="sale" [(ngModel)]="once.sale"><br><br>
+    <input type="submit">
+</form>
+</mat-card-content>

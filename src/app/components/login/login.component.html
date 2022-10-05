@@ -1,0 +1,20 @@
+<div class="log">
+    <h3>כניסה</h3>
+<form #f="ngForm" (submit)="checkClient()">
+    <mat-form-field appearance="outline">
+        <mat-label>שם משתמש</mat-label>
+        <input required="true" [(ngModel)]="newName" name="name" matInput >
+        <mat-error *ngIf="f.controls.name?.invalid && f.submitted">הכנס שם משתמש קיים</mat-error>
+    </mat-form-field>
+           
+    <mat-form-field appearance="outline">
+        <mat-label>סיסמא</mat-label>
+        <input required="true" [(ngModel)]="password" name="password" matInput >
+        <mat-error *ngIf="f.controls.password?.invalid && f.submitted">הכנס סיסמא</mat-error>
+
+    </mat-form-field>
+    <br>
+    
+<input type="submit">
+</form>
+</div>
